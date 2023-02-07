@@ -1,0 +1,104 @@
+/*--------------------------------
+
+Better_favourites icon font
+Generated using nucleoapp.com
+
+-------------------------------- */
+
+@icon-font-path: "../fonts";
+
+@font-face {
+  font-family: 'Better_favourites';
+  src: url('@{icon-font-path}/Better_favourites.eot');
+  src: url('@{icon-font-path}/Better_favourites.eot') format('embedded-opentype'),
+       url('@{icon-font-path}/Better_favourites.woff2') format('woff2'),
+       url('@{icon-font-path}/Better_favourites.woff') format('woff'),
+       url('@{icon-font-path}/Better_favourites.ttf') format('truetype'),
+       url('@{icon-font-path}/Better_favourites.svg') format('svg');
+}
+
+/* base class */
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 'Better_favourites';
+  color: inherit;
+  flex-shrink: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* size examples - relative units */
+.icon-sm {
+	font-size: 0.8em;
+}
+
+.icon-lg {
+  font-size: 1.2em;
+}
+
+/* size examples - absolute units */
+.icon-16 {
+  font-size: 16px;
+}
+
+.icon-32 {
+  font-size: 32px;
+}
+
+/* rotate the icon infinitely */
+.icon-is-spinning {
+  animation: icon-spin 1s infinite linear;
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* transform */
+.icon-rotate-90  {
+	transform: rotate(90deg);
+}
+
+.icon-rotate-180 {
+	transform: rotate(180deg);
+}
+
+.icon-rotate-270 {
+	transform: rotate(270deg);
+}
+
+.icon-flip-y {
+	transform: scaleY(-1);
+}
+
+.icon-flip-x {
+	transform: scaleX(-1);
+}
+
+/* icons */
+@icon-bookmark: "\ea02";
+@icon-bookmark-outline: "\ea03";
+@icon-heart: "\ea04";
+@icon-heart-outline: "\ea05";
+
+.icon-bookmark::before {
+  content: @icon-bookmark;
+}
+
+.icon-bookmark-outline::before {
+  content: @icon-bookmark-outline;
+}
+
+.icon-heart::before {
+  content: @icon-heart;
+}
+
+.icon-heart-outline::before {
+  content: @icon-heart-outline;
+}
+

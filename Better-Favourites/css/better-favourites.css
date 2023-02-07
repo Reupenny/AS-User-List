@@ -1,0 +1,198 @@
+/*--------------------------------
+
+Better_favourites Web Font
+Generated using nucleoapp.com
+
+-------------------------------- */
+@font-face {
+    font-family: 'Better_favourites';
+    src: url('../fonts/Better_favourites.eot');
+    src: url('../fonts/Better_favourites.eot') format('embedded-opentype'), url('../fonts/Better_favourites.woff2') format('woff2'), url('../fonts/Better_favourites.woff') format('woff'), url('../fonts/Better_favourites.ttf') format('truetype'), url('../fonts/Better_favourites.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    display: inline-block;
+    font: normal normal normal 32px/1 'Better_favourites';
+    speak: none;
+    text-transform: none;
+    /* Better Font Rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: ease-in-out;
+    transition-duration: 30ms;
+}
+
+/*------------------------
+    font icons
+  -------------------------*/
+
+.icon-bookmark::before {
+    content: "\ea02";
+}
+
+.icon-bookmark {
+    color: red;
+}
+
+.icon-bookmark-outline::before {
+    content: "\ea03";
+}
+
+.icon-bookmark:hover {
+    color: rgb(49, 49, 49) !important;
+}
+
+.icon-heart::before {
+    content: "\ea04";
+}
+
+.icon-heart {
+    color: red;
+}
+
+.icon-heart-outline::before {
+    content: "\ea05";
+}
+
+.icon-heart:hover {
+    color: rgb(49, 49, 49) !important;
+}
+
+
+.icon:hover {
+    transition: .2s ease-in-out;
+    color: red;
+}
+
+.bettter_fav_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff00;
+    border: none;
+    color: black;
+    padding: 5px;
+    min-width: 40px;
+    min-height: 45px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.bettter_fav_button .dashicons {
+    font-size: 30px;
+    padding: 10px;
+    height: 30px;
+    width: 40px;
+}
+
+.bettter_fav_cross {
+    color: rgb(131, 51, 51);
+}
+
+.bettter_fav_cross:hover {
+    color: rgb(222, 4, 4);
+}
+
+.bettter_fav_cart {
+    color: rgb(79, 131, 51);
+}
+
+.bettter_fav_cart:hover {
+    color: rgb(66, 222, 4);
+}
+
+.bettter_fav_table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.bettter_fav_table td,
+.bettter_fav_table th {
+
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.bettter_fav_table tr:nth-child(odd) {
+    background-color: #e3e3e347;
+}
+
+.bettter_fav_table tr:hover {
+    background-color: #acacac47;
+}
+
+.bettter_fav_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.favorites-shop-loop {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#myModal {
+    display: none;
+    /* Hidden by default */
+}
+
+.modal {
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: ease-in-out 20ms;
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
