@@ -94,3 +94,11 @@ Generated using nucleoapp.com
 .icon-heart-outline::before {
   content: "\ea05";
 }
+
+.icon-close-outline::before {
+  content: "\ea06";
+}
+
+.icon-shopping-cart::before {
+  content: "\ea07";
+}

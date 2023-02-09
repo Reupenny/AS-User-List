@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Better Favourites
  * Description: A Wordpress plugin to better handle all Wordpress notifications and keep you notified of the important things.
- * Version:     0.1.0 beta
+ * Version:     0.1.1 beta
  * Author:      Azure Studio
  * Author URI:  https://azurestudio.co.nz
  * Plugin URI:  https://azurestudio.co.nz/plugins/
@@ -18,7 +18,7 @@ use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 $myUpdateChecker = PucFactory::buildUpdateChecker(
     'https://reupenny.github.io/Better-Favourites/update.json',
     __FILE__, //Full path to the main plugin file or functions.php.
-    'Better-Notified'
+    'Better-Favourites'
 );
 
 // Create database table to store favorites
@@ -44,10 +44,16 @@ function Better_Favourites_create_menu()
 {
     register_setting('better-favourites-general', 'Better_Favourites_icons_style');
     register_setting('better-favourites-general', 'Better_fav_list_title');
+    register_setting('better-favourites-general', 'Better_fav_list_title_show');
     register_setting('better-favourites-general', 'Better_Favourites_icon_add_text');
     register_setting('better-favourites-general', 'Better_Favourites_icon_remove_text');
     register_setting('better-favourites-general', 'Better_fav_list_url');
+    register_setting('better-favourites-general', 'Better_fav_show_woo');
+    register_setting('better-favourites-general', 'Better_fav_show_woo_list');
+    register_setting('better-favourites-General', 'Better_fav_custom_css');
+    register_setting('better-favourites-General', 'Better_fav_custom_css', 'sanitize_text_field');
 
+    //, 'sanitize_text_field'
 
     add_option('Better_Favourites_icon_remove_text', 'Remove Favourite');
 
@@ -102,4 +108,11 @@ add_action('wp_ajax_get_home_url', 'get_home_url_callback');
 function get_home_url_callback()
 {
     wp_send_json_success(home_url());
+}
+
+//Load Style Sheet
+add_action('wp_enqueue_scripts', 'favorites_list_enqueue_styles');
+function favorites_list_enqueue_styles()
+{
+    wp_enqueue_style('favorites-list-style', plugin_dir_url(__FILE__) . 'css/better-favourites.css');
 }

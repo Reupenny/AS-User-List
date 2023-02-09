@@ -60,6 +60,15 @@ Generated using nucleoapp.com
     color: rgb(49, 49, 49) !important;
 }
 
+.icon-close-outline::before {
+    content: "\ea06";
+}
+
+.icon-shopping-cart::before {
+    content: "\ea07";
+}
+
+
 
 .icon:hover {
     transition: .2s ease-in-out;
@@ -83,15 +92,13 @@ Generated using nucleoapp.com
     cursor: pointer;
 }
 
-.bettter_fav_button .dashicons {
+.bettter_fav_button .icon {
     font-size: 30px;
-    padding: 10px;
-    height: 30px;
-    width: 40px;
+
 }
 
 .bettter_fav_cross {
-    color: rgb(131, 51, 51);
+    color: #7a7a7a94;
 }
 
 .bettter_fav_cross:hover {
@@ -99,11 +106,16 @@ Generated using nucleoapp.com
 }
 
 .bettter_fav_cart {
-    color: rgb(79, 131, 51);
+    color: #7a7a7a94;
 }
 
-.bettter_fav_cart:hover {
-    color: rgb(66, 222, 4);
+.icon-shopping-cart:hover {
+    color: #00b545;
+    color: var(--wp--preset--color--primary);
+}
+
+.Better_fav_mobile {
+    display: none !important;
 }
 
 .bettter_fav_table {
@@ -112,12 +124,25 @@ Generated using nucleoapp.com
     width: 100%;
 }
 
+.better_favourites_list {
+    width: 100%;
+    color: black;
+    background-color: white;
+    margin: 20px 10px;
+}
+
 .bettter_fav_table td,
 .bettter_fav_table th {
 
     padding: 8px;
     text-align: center;
     text-decoration: none;
+    max-width: 25%;
+}
+
+.better_favourites_list h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .bettter_fav_table tr:nth-child(odd) {
@@ -143,10 +168,21 @@ Generated using nucleoapp.com
     align-items: center;
 }
 
+.bettter_fav_table img {
+    max-width: 50px !important;
+    aspect-ratio: auto 50/50;
+    max-height: 50px !important;
+}
 
 #myModal {
     display: none;
     /* Hidden by default */
+    color: black;
+}
+
+#myModal a {
+    color: var(--wp--preset--color--primary);
+    text-decoration: underline;
 }
 
 .modal {
@@ -182,6 +218,13 @@ Generated using nucleoapp.com
     text-align: center;
 }
 
+.modal-footer {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* The Close Button */
 .close {
     color: #aaa;
@@ -195,4 +238,25 @@ Generated using nucleoapp.com
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 650px) {
+    .Better_fav_mobile {
+        display: revert !important;
+    }
+
+    .Better_fav_mobile_hide {
+        display: none !important;
+    }
+
+    .better_favourites_list {
+        margin: 0px 0px;
+    }
+
+    .bettter_fav_table img {
+        max-width: 50px !important;
+        aspect-ratio: auto 50/50;
+        max-height: 50px !important;
+    }
+
 }

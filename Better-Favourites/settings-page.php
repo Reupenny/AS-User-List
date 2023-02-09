@@ -14,6 +14,14 @@ add_action('admin_head', function () {
     global $_wp_admin_css_colors;
     $admin_colors = $_wp_admin_css_colors;
 });
+//Custom CSS front end
+function Better_Favourites_custom_css()
+{
+    $custom_css = get_option('Better_fav_custom_css');
+    if (!empty($custom_css)) {
+        wp_add_inline_style('favorites-list-style', $custom_css);
+    }
+}
 
 
 //Create settings page
@@ -26,6 +34,7 @@ function Better_favourites_settings_page()
     $icon_add_text = get_option('Better_Favourites_icon_add_text');
     $icon_remove_text = get_option('Better_Favourites_icon_remove_text');
     $Better_fav_list_url = get_option('Better_fav_list_url');
+    $Better_fav_custom_css = get_option('Better_fav_custom_css');
 ?>
 
     <style>
@@ -135,6 +144,14 @@ function Better_favourites_settings_page()
                             </tr>
                             <tr>
                                 <th scope="row">
+                                    <label for="Better_fav_list_title_show"><?php esc_html_e('Display List Title', 'Better-Favourites-general'); ?></label>
+                                </th>
+                                <td>
+                                    <input type="checkbox" name="Better_fav_list_title_show" id="Better_fav_list_title_show" value="1" <?php checked(1, get_option('Better_fav_list_title_show'), true); ?>><?php esc_html_e('Show the prefered title above the list.'); ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
                                     <label for="Better_fav_list_url"><?php esc_html_e('Link to Page:', 'better-favourites-General'); ?></label>
                                 </th>
                                 <td>
@@ -156,10 +173,38 @@ function Better_favourites_settings_page()
                                     </p>
                                 </td>
                             </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="Better_fav_show_woo"><?php esc_html_e('Show Woocommerce buttons:', 'Better-Favourites-general'); ?></label>
+                                </th>
+                                <td>
+                                    <fieldset>
+                                        <label for="Better_fav_show_woo">
+                                            <input type="checkbox" name="Better_fav_show_woo" id="Better_fav_show_woo" value="1" <?php checked(1, get_option('Better_fav_show_woo'), true); ?>><?php esc_html_e('Show the add to button on product pages.'); ?>
+                                        </label>
+                                        <label for="Better_fav_show_woo_list">
+                                            <input type="checkbox" name="Better_fav_show_woo_list" id="Better_fav_show_woo_list" value="1" <?php checked(1, get_option('Better_fav_show_woo_list'), true); ?>><?php esc_html_e('Show the add to button on shop list pages. (experimental)'); ?>
+                                        </label>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="Better_fav_custom_css"><?php esc_html_e('Custom CSS:', 'better-favourites-General'); ?></label>
+                                </th>
+                                <td>
+                                    <fieldset>
+                                        <textarea name="Better_fav_custom_css" rows="5" cols="50" id="Better_fav_custom_css"><?php echo get_option('Better_fav_custom_css'); ?></textarea>
+                                        <p class="description" id="Better_fav_custom_css-description">
+                                            <?php esc_html_e('Enter your custom CSS here, it will be applied to the front end.'); ?>
+                                        </p>
+                                    </fieldset>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <?php submit_button();
-                    register_setting('better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general');
+                    register_setting('better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general', 'better-favourites-general');
                     add_settings_section('better-favourites-general-section', 'Better Favourites Settings', '', 'better-favourites-general');
                     ?>
                 </form>
