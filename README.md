@@ -33,6 +33,6 @@ This is a wordpress plugin that allows users & customers to add any page, produc
 <p>Settings Page</p>
     <img src="public/Screenshot_2.png" alt="" />
 <p>Pop-up to notify user that its been added to the list</p>
-    <img src="public/Screenshot_3.png" alt="" />
+    <img src="public/Screenshot_3.png" alt="" width="80%"/>
 <p>Shop Page showing the heart add to list button in both states</p>
 </div>
