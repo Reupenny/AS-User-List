@@ -20,6 +20,7 @@ if ($woo_on_list == '1') {
 // Shortcode for the "Add to Favorites" button
 function add_to_favorites_button_shortcode()
 {
+    $Better_fav_list_title = get_option('Better_fav_list_title');
     global $wpdb, $post;
     $current_user = wp_get_current_user();
     $table_name = $wpdb->prefix . "favorites";
@@ -28,7 +29,7 @@ function add_to_favorites_button_shortcode()
     ini_set('display_errors', 1);
     add_action('wp_enqueue_scripts', 'Better_Favourites_custom_css');
     $fave_url = get_option('Better_fav_list_url');
-    $modal = '<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel">Item added to favorites</h4></div><div class="modal-body"><p>Check out your favorites <a href="' . $fave_url . '">here</a>.</p></div><div class="modal-footer"><button type="button" id="modal_close" class=" modal_close button wp-element-button" data-dismiss="modal">Close</button></div></div></div></div>';
+    $modal = '<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="myModalLabel">Item added to ' . $Better_fav_list_title . '</h4></div><div class="modal-body"><p>Check out your ' . $Better_fav_list_title . ' <a href="' . $fave_url . '">here</a>.</p></div><div class="modal-footer"><button type="button" id="modal_close" class=" modal_close button wp-element-button" data-dismiss="modal">Close</button></div></div></div></div>';
     $icon_add_text = get_option('Better_Favourites_icon_add_text');
     if ($icon_add_text == 'NA') {
         $icon_add_text = '';

@@ -112,6 +112,7 @@ Generated using nucleoapp.com
 .icon-shopping-cart:hover {
     color: #00b545;
     color: var(--wp--preset--color--primary);
+    color: #00b545;
 }
 
 .Better_fav_mobile {
@@ -188,7 +189,7 @@ Generated using nucleoapp.com
 .modal {
     position: fixed;
     /* Stay in place */
-    z-index: 1;
+    z-index: 20000;
     /* Sit on top */
     left: 0;
     top: 0;
