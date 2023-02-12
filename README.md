@@ -4,11 +4,11 @@
     <img src="./public/icon.svg" width="150" alt="" />
 </div>
 
-This is a wordpress plugin that allows users & customers to add any page, product or post to a favourite/ wishlist.
+A flexible favourite & Wishlist wordpress plugin that allows users to add any page, product or post to their list.
 
 Please note this is my second plugin for wordpress and I am new to PHP.
 
-If you use and enjoy AS Notified consider Making a donation to support its development [Donate here](https://azurestudio.co.nz)
+If you use and enjoy AS Notified consider Making a donation to support its development [Donate here](https://shop.azurestudio.co.nz)
 
 ## Features
 
@@ -33,6 +33,8 @@ If you use and enjoy AS Notified consider Making a donation to support its devel
 🔷 Fix error code on display list shortcode that apears only with certain themes.
 
 🔷 Add an add all to cart button to the list.
+
+🔷 Add click to close on the background for the pop-up.
 
 ## Screenshots
 

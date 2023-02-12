@@ -1,24 +1,24 @@
 {
-	"name": "Better-Favourites",
+	"name": "AS User List",
 	"version": "0.1.1 beta",
-	"download_url": "https://reupenny.github.io/Better-Favourites/versions/Better-Favourites-0.1.1b.zip",
+	"download_url": "https://reupenny.github.io/AS-User-List/versions/Better-Favourites-0.1.1b.zip",
 	"requires": "5.8.6",
 	"tested": "6.1.1",
 	"author": "Azure Studio",
 	"author_homepage": "https://azurestudio.co.nz",
-	"homepage": "https://github.com/Reupenny/Better-Favourites",
+	"homepage": "https://github.com/Reupenny/AS-User-List",
 	"last_updated": "2023-01-31 14:00:00",
 	"banners": {
-		"low": "https://reupenny.github.io/Better-Favourites/public/banner-772x250.png",
-		"high": "https://reupenny.github.io/Better-Favourites/public/banner-1544x500.png"
+		"low": "https://reupenny.github.io/AS-User-List/public/banner-772x250.png",
+		"high": "https://reupenny.github.io/AS-User-List/public/banner-1544x500.png"
 	},
 	"icons": {
-		"1x": "https://reupenny.github.io/Better-Favourites/public/icon-128x128.png",
-		"2x": "https://reupenny.github.io/Better-Favourites/public/icon-256x256.png",
-		"svg": "https://reupenny.github.io/Better-Favourites/public/icon.svg"
+		"1x": "https://reupenny.github.io/AS-User-List/public/icon-128x128.png",
+		"2x": "https://reupenny.github.io/AS-User-List/public/icon-256x256.png",
+		"svg": "https://reupenny.github.io/AS-User-List/public/icon.svg"
 	},
 	"sections": {
-		"description": "A Wordpress plugin that allows you to favourite any page.",
+		"description": "A flexible favourite & Wishlist wordpress plugin that allows users to add any page, product or post to their list.",
 		"installation": "Installation instructions.",
 		"changelog": "<p> - First release.</br></p>"
 	}

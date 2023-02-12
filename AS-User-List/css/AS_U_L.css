@@ -1,20 +1,20 @@
 /*--------------------------------
 
-Better_favourites Web Font
+AS_U_L Web Font
 Generated using nucleoapp.com
 
 -------------------------------- */
 @font-face {
-    font-family: 'Better_favourites';
-    src: url('../fonts/Better_favourites.eot');
-    src: url('../fonts/Better_favourites.eot') format('embedded-opentype'), url('../fonts/Better_favourites.woff2') format('woff2'), url('../fonts/Better_favourites.woff') format('woff'), url('../fonts/Better_favourites.ttf') format('truetype'), url('../fonts/Better_favourites.svg') format('svg');
+    font-family: 'AS_U_L';
+    src: url('../fonts/AS_U_L.eot');
+    src: url('../fonts/AS_U_L.eot') format('embedded-opentype'), url('../fonts/AS_U_L.woff2') format('woff2'), url('../fonts/AS_U_L.woff') format('woff'), url('../fonts/AS_U_L.ttf') format('truetype'), url('../fonts/AS_U_L.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 .icon {
     display: inline-block;
-    font: normal normal normal 32px/1 'Better_favourites';
+    font: normal normal normal 32px/1 'AS_U_L';
     speak: none;
     text-transform: none;
     /* Better Font Rendering */
@@ -75,7 +75,7 @@ Generated using nucleoapp.com
     color: red;
 }
 
-.bettter_fav_button {
+.AS_U_L_button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,20 +92,20 @@ Generated using nucleoapp.com
     cursor: pointer;
 }
 
-.bettter_fav_button .icon {
+.AS_U_L_button .icon {
     font-size: 30px;
 
 }
 
-.bettter_fav_cross {
+.AS_U_L_cross {
     color: #7a7a7a94;
 }
 
-.bettter_fav_cross:hover {
+.AS_U_L_cross:hover {
     color: rgb(222, 4, 4);
 }
 
-.bettter_fav_cart {
+.AS_U_L_cart {
     color: #7a7a7a94;
 }
 
@@ -115,25 +115,25 @@ Generated using nucleoapp.com
     color: #00b545;
 }
 
-.Better_fav_mobile {
+.AS_U_L_mobile {
     display: none !important;
 }
 
-.bettter_fav_table {
+.AS_U_L_table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-.better_favourites_list {
+.AS_U_L_list {
     width: 100%;
     color: black;
     background-color: white;
     margin: 20px 10px;
 }
 
-.bettter_fav_table td,
-.bettter_fav_table th {
+.AS_U_L_table td,
+.AS_U_L_table th {
 
     padding: 8px;
     text-align: center;
@@ -141,20 +141,20 @@ Generated using nucleoapp.com
     max-width: 25%;
 }
 
-.better_favourites_list h3 {
+.AS_U_L_list h3 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.bettter_fav_table tr:nth-child(odd) {
+.AS_U_L_table tr:nth-child(odd) {
     background-color: #e3e3e347;
 }
 
-.bettter_fav_table tr:hover {
+.AS_U_L_table tr:hover {
     background-color: #acacac47;
 }
 
-.bettter_fav_table th {
+.AS_U_L_table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
@@ -169,7 +169,7 @@ Generated using nucleoapp.com
     align-items: center;
 }
 
-.bettter_fav_table img {
+.AS_U_L_table img {
     max-width: 50px !important;
     aspect-ratio: auto 50/50;
     max-height: 50px !important;
@@ -242,19 +242,19 @@ Generated using nucleoapp.com
 }
 
 @media only screen and (max-width: 650px) {
-    .Better_fav_mobile {
+    .AS_U_L_mobile {
         display: revert !important;
     }
 
-    .Better_fav_mobile_hide {
+    .AS_U_L_mobile_hide {
         display: none !important;
     }
 
-    .better_favourites_list {
+    .AS_U_L_list {
         margin: 0px 0px;
     }
 
-    .bettter_fav_table img {
+    .AS_U_L_table img {
         max-width: 50px !important;
         aspect-ratio: auto 50/50;
         max-height: 50px !important;
