@@ -1,5 +1,5 @@
 <?php
-add_shortcode('favorites_list', 'favorites_list_shortcode');
+add_shortcode('as_display_list', 'favorites_list_shortcode');
 
 // Shortcode to display the favorites list
 function favorites_list_shortcode()

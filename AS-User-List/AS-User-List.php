@@ -3,7 +3,7 @@
 /**
  * Plugin Name: AS User List
  * Description: A flexible favourite & Wishlist wordpress plugin that allows users to add any page, product or post to their list.
- * Version:     0.1.1 beta
+ * Version:     0.1.2 beta
  * Author:      Azure Studio
  * Author URI:  https://azurestudio.co.nz
  * Plugin URI:  https://azurestudio.co.nz/plugins/
@@ -53,7 +53,6 @@ function AS_User_List_create_menu()
     register_setting('AS-U-L-General', 'AS_U_L_custom_css');
     register_setting('AS-U-L-General', 'AS_U_L_custom_css', 'sanitize_text_field');
 
-    //, 'sanitize_text_field'
 
     add_option('AS_User_List_icon_remove_text', 'Remove Favourite');
 
