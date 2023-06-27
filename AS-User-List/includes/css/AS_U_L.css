@@ -1,0 +1,280 @@
+/*--------------------------------
+
+AS_U_L Web Font
+Generated using nucleoapp.com
+
+-------------------------------- */
+@font-face {
+    font-family: 'AS_U_L';
+    src: url('../fonts/AS_U_L.eot');
+    src: url('../fonts/AS_U_L.eot') format('embedded-opentype'), url('../fonts/AS_U_L.woff2') format('woff2'), url('../fonts/AS_U_L.woff') format('woff'), url('../fonts/AS_U_L.ttf') format('truetype'), url('../fonts/AS_U_L.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+    display: inline-block;
+    font: normal normal normal 32px/1 'AS_U_L';
+    speak: none;
+    text-transform: none;
+    /* Better Font Rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: ease-in-out;
+    transition-duration: 30ms;
+}
+
+/*------------------------
+    font icons
+  -------------------------*/
+
+.icon-bookmark::before {
+    content: "\ea02";
+}
+
+.icon-bookmark {
+    color: red;
+}
+
+.icon-bookmark-outline::before {
+    content: "\ea03";
+}
+
+.icon-bookmark:hover {
+    color: rgb(49, 49, 49) !important;
+}
+
+.icon-heart::before {
+    content: "\ea04";
+}
+
+.icon-heart {
+    color: red;
+}
+
+.icon-heart-outline::before {
+    content: "\ea05";
+}
+
+.icon-heart:hover {
+    color: rgb(49, 49, 49) !important;
+}
+
+.icon-close-outline::before {
+    content: "\ea06";
+}
+
+.icon-shopping-cart::before {
+    content: "\ea07";
+}
+
+
+
+.icon:hover {
+    transition: .2s ease-in-out;
+    color: red;
+}
+
+.AS_U_L_button {
+    /*    
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    */
+    background-color: #ffffff00;
+    border: none;
+    color: black;
+    padding: 5px;
+    min-width: 40px;
+    min-height: 45px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.AS_U_L_button .icon {
+    font-size: 30px;
+
+}
+
+.AS_U_L_cross {
+    color: #7a7a7a94;
+}
+
+.AS_U_L_cross:hover {
+    color: rgb(222, 4, 4);
+}
+
+.AS_U_L_cart {
+    color: #7a7a7a94;
+}
+
+.icon-shopping-cart:hover {
+    color: #00b545;
+    color: var(--wp--preset--color--primary);
+    color: #00b545;
+}
+
+.AS_U_L_mobile {
+    display: none !important;
+}
+
+.AS_U_L_table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.AS_U_L_list {
+    width: 100%;
+    color: black;
+    background-color: white;
+    margin: 20px 10px;
+}
+
+.AS_U_L_table td,
+.AS_U_L_table th {
+
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    max-width: 25%;
+}
+
+.AS_U_L_list h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.AS_U_L_table tr:nth-child(odd) {
+    background-color: #e3e3e347;
+}
+
+.AS_U_L_table tr:hover {
+    background-color: #acacac47;
+}
+
+.AS_U_L_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.favorites-shop-loop {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AS_U_L_table img {
+    max-width: 50px !important;
+    aspect-ratio: auto 50/50;
+    max-height: 50px !important;
+}
+
+.form_cart {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+#myModal {
+    display: none;
+    /* Hidden by default */
+    color: black;
+}
+
+#myModal a {
+    color: var(--wp--preset--color--primary);
+    text-decoration: underline;
+}
+
+.modal {
+    position: fixed;
+    z-index: 100;
+    /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+    transition: ease-in-out 20ms;
+}
+
+.modal-background {
+    z-index: 200;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-dialog {
+    z-index: 300;
+    position: absolute;
+    width: 100%;
+    height: 0px;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-footer {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Close Button */
+.close {
+    z-index: 350;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 650px) {
+    .AS_U_L_mobile {
+        display: revert !important;
+    }
+
+    .AS_U_L_mobile_hide {
+        display: none !important;
+    }
+
+    .AS_U_L_list {
+        margin: 0px 0px;
+    }
+
+    .AS_U_L_table img {
+        max-width: 50px !important;
+        aspect-ratio: auto 50/50;
+        max-height: 50px !important;
+    }
+
+}
