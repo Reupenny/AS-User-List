@@ -21,11 +21,18 @@ if ($woo_on_list == '1') {
 // Shortcode for the "Add to Favorites" button
 function add_to_favorites_button_shortcode()
 {
+    // CACHING Prevention
+    if (is_user_logged_in()) {
+        if (!defined('DONOTCACHEPAGE')) {
+            define('DONOTCACHEPAGE', true);
+        }
+    }
+
     wp_enqueue_style('favorites-list-style', plugin_dir_url(__FILE__) . 'css/AS_U_L.css');
     $AS_U_L_list_title = get_option('AS_U_L_list_title');
     global $wpdb, $post;
     $current_user = wp_get_current_user();
-    $table_name = $wpdb->prefix . "favorites";
+    $table_name = $wpdb->prefix . "AS_User_List";
     $favorite = $wpdb->get_row("SELECT * FROM $table_name WHERE user_id = $current_user->ID AND post_id = $post->ID");
     // Check if WooCommerce is installed and active
     if (is_plugin_active('woocommerce/woocommerce.php')) {
@@ -42,37 +49,41 @@ function add_to_favorites_button_shortcode()
     if ($icon_remove_text == 'NA') {
         $icon_remove_text = '';
     }
-    $icon_style = get_option('AS_User_List_icons_style');
-    if ($icon_style == 'default') {
-        if ($favorite) {
-            return '<br><span data-post-id="' . $post->ID . '" class="remove-favorite button wp-element-button">' . $icon_remove_text . '</span>' . $modal;
-        } else {
-            return '<br><span id="add-to-favorites-product-' . $post->ID . '" class="add-to-favorites button wp-element-button" data-post-id="' . $post->ID . '">' . $icon_add_text . '</span>' . $modal;
-        }
-    }
-    if ($icon_style == 'bookmark') {
-        if ($favorite) {
-            return '<br><span data-post-id="' . $post->ID . '" class="remove-favorite AS_U_L_button"><span class="icon icon-bookmark"></span> ' . $icon_remove_text . '</span>' . $modal;
-        } else {
-            return '<br><span id="add-to-favorites-product-' . $post->ID . '" class="add-to-favorites AS_U_L_button" data-post-id="' . $post->ID . '"><span class="icon icon-bookmark-outline"></span> ' . $icon_add_text . '</span>' . $modal;
-        }
-    }
-    if ($icon_style == 'heart') {
-        if ($favorite) {
-            return '<br><span data-post-id="' . $post->ID . '" class="remove-favorite AS_U_L_button"><span class="icon icon-heart"></span>  ' . $icon_remove_text . '</span>' . $modal;
-        } else {
-            return '<br><span id="add-to-favorites-product-' . $post->ID . '" class="add-to-favorites AS_U_L_button" data-post-id="' . $post->ID . '"><span class="icon icon-heart-outline"></span> ' . $icon_add_text . '</span>' . $modal;
-        }
-    }
+?><div class="AS_U_L_icon"><?php
+                            $icon_style = get_option('AS_User_List_icons_style');
+                            if ($icon_style == 'default') {
+                                if ($favorite) {
+                                    return '<br><span data-post-id="' . $post->ID . '" id="AS_UL_' . time() . '" class="remove-favorite button wp-element-button">' . $icon_remove_text . '</span>' . $modal;
+                                } else {
+                                    return '<br><span id="add-to-favorites-product-' . $post->ID . '" id="AS_UL_' . time() . '" class="add-to-favorites button wp-element-button" data-post-id="' . $post->ID . '">' . $icon_add_text . '</span>' . $modal;
+                                }
+                            }
+                            if ($icon_style == 'bookmark') {
+                                if ($favorite) {
+                                    return '<br><span data-post-id="' . $post->ID . '" id="AS_UL_' . time() . '" class="remove-favorite AS_U_L_button"><span class="icon icon-bookmark"></span> ' . $icon_remove_text . '</span>' . $modal;
+                                } else {
+                                    return '<br><span id="add-to-favorites-product-' . $post->ID . '" id="AS_UL_' . time() . '" class="add-to-favorites AS_U_L_button" data-post-id="' . $post->ID . '"><span class="icon icon-bookmark-outline"></span> ' . $icon_add_text . '</span>' . $modal;
+                                }
+                            }
+                            if ($icon_style == 'heart') {
+                                if ($favorite) {
+                                    return '<br><span data-post-id="' . $post->ID . '" id="AS_UL_' . time() . '" class="remove-favorite AS_U_L_button"><span class="icon icon-heart"></span>  ' . $icon_remove_text . '</span>' . $modal;
+                                } else {
+                                    return '<br><span id="add-to-favorites-product-' . $post->ID . '" id="AS_UL_' . time() . '" class="add-to-favorites AS_U_L_button" data-post-id="' . $post->ID . '"><span class="icon icon-heart-outline"></span> ' . $icon_add_text . '</span>' . $modal;
+                                }
+                            }
+                            ?></div>
+<?php
     return $output;
 }
+
 
 //AJAX action to handle adding items to the favorites list
 function add_to_favorites()
 {
     global $wpdb;
     $current_user = wp_get_current_user();
-    $table_name = $wpdb->prefix . "favorites";
+    $table_name = $wpdb->prefix . "AS_User_List";
     $wpdb->insert(
         $table_name,
         array(
@@ -81,6 +92,10 @@ function add_to_favorites()
             'date_added' => current_time('mysql')
         )
     );
+    // Add cache control headers
+    header('Cache-Control: no-cache, must-revalidate');
+    header('Expires: 0');
+
     wp_die();
 }
 
@@ -88,7 +103,10 @@ function add_to_favorites()
 function favorites_list_script()
 {
     if (is_user_logged_in()) {
-        wp_enqueue_script('favorites-list', plugin_dir_url(__FILE__) . 'js/favorites-list.js', array('jquery'), false, true);
+        $script_url = plugin_dir_url(__FILE__) . 'js/favorites-list.js';
+        $script_url .= '?v=' . time(); // Append timestamp to the script URL
+
+        wp_enqueue_script('favorites-list', $script_url, array('jquery'), false, true);
         wp_localize_script('favorites-list', 'favorites_list', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('favorites_list_nonce'),
@@ -100,7 +118,7 @@ function favorites_list_script()
 function remove_from_favorites()
 {
     global $wpdb;
-    $table_name = $wpdb->prefix . "favorites";
+    $table_name = $wpdb->prefix . "AS_User_List";
     $wpdb->delete(
         $table_name,
         array(
@@ -108,6 +126,10 @@ function remove_from_favorites()
             'post_id' => $_POST['post_id']
         )
     );
+    // Add cache control headers
+    header('Cache-Control: no-cache, must-revalidate');
+    header('Expires: 0');
+
     wp_die();
 }
 
@@ -115,7 +137,10 @@ function remove_from_favorites()
 function favorites_list_remove_script()
 {
     if (is_user_logged_in()) {
-        wp_enqueue_script('favorites-list-remove', plugin_dir_url(__FILE__) . 'js/favorites-list-remove.js', array('jquery'), false, true);
+        $script_url = plugin_dir_url(__FILE__) . 'js/favorites-list-remove.js';
+        $script_url .= '?v=' . time(); // Append timestamp to the script URL
+
+        wp_enqueue_script('favorites-list-remove', $script_url, array('jquery'), false, true);
         wp_localize_script('favorites-list-remove', 'favorites_list_remove', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('favorites_list_remove_nonce'),
@@ -126,13 +151,14 @@ function favorites_list_remove_script()
 // Button after 'Add to cart' button
 function add_text_after_add_to_cart_button()
 {
-    echo do_shortcode('[as_add_to_list]');
+
+    echo add_to_favorites_button_shortcode();
 }
 function add_text_after_add_to_cart_button_no_stock()
 {
     global $product;
     if (!$product->is_in_stock()) {
-        echo do_shortcode('[as_add_to_list]');
+        echo add_to_favorites_button_shortcode();
     }
 }
 
@@ -141,6 +167,6 @@ function add_text_after_add_to_cart_button_shop_loop()
 {
 
     echo '<div class="favorites-shop-loop">';
-    echo do_shortcode('[as_add_to_list]');
+    echo add_to_favorites_button_shortcode();
     echo '</div>';
 }

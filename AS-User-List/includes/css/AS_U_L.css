@@ -117,6 +117,7 @@ Generated using nucleoapp.com
     color: #00b545;
 }
 
+
 .AS_U_L_mobile {
     display: none !important;
 }
@@ -186,6 +187,7 @@ Generated using nucleoapp.com
     display: none;
     /* Hidden by default */
     color: black;
+    z-index: 2000;
 }
 
 #myModal a {

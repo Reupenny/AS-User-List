@@ -3,7 +3,7 @@
 /**
  * Plugin Name: AS User List
  * Description: A flexible favourite & Wishlist plugin that allows users to add any page, product or post to their list.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Azure Studio
  * Author URI:  https://azurestudio.co.nz
  * Plugin URI:  https://azurestudio.co.nz/plugins/
@@ -77,23 +77,33 @@ if (function_exists('aul_fs')) {
         aul_fs()->add_filter('after_pending_connect_url', 'aul_fs_settings_url');
     }
 
-    // Create database table to store favorites
     function favorites_list_install()
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . "favorites";
+        $old_table_name = $wpdb->prefix . "favorites";
+        $new_table_name = $wpdb->prefix . "AS_User_List";
         $charset_collate = $wpdb->get_charset_collate();
-        $sql = "CREATE TABLE $table_name (
-      id mediumint(9) NOT NULL AUTO_INCREMENT,
-      user_id mediumint(9) NOT NULL,
-      post_id mediumint(9) NOT NULL,
-      date_added datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-      PRIMARY KEY  (id)
-   ) $charset_collate;";
-        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-        dbDelta($sql);
+
+        // Check if the old table exists
+        if ($wpdb->get_var("SHOW TABLES LIKE '$old_table_name'") === $old_table_name) {
+            // Rename the old table to the new table
+            $wpdb->query("RENAME TABLE $old_table_name TO $new_table_name");
+        } else {
+            // Create the new table if the old table doesn't exist
+            $sql = "CREATE TABLE $new_table_name (
+                id mediumint(9) NOT NULL AUTO_INCREMENT,
+                user_id mediumint(9) NOT NULL,
+                post_id mediumint(9) NOT NULL,
+                date_added datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+                PRIMARY KEY  (id)
+            ) $charset_collate;";
+
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+            dbDelta($sql);
+        }
     }
     register_activation_hook(__FILE__, 'favorites_list_install');
+
 
 
     function AS_User_List_create_menu()
@@ -154,7 +164,9 @@ if (function_exists('aul_fs')) {
     require_once(plugin_dir_path(__FILE__) . 'includes/settings-page.php');
     require_once(plugin_dir_path(__FILE__) . 'includes/add_to_list.php');
     require_once(plugin_dir_path(__FILE__) . 'includes/display_list_shortcode.php');
+    require_once(plugin_dir_path(__FILE__) . 'includes/List_count_shortcode.php');
     require_once(plugin_dir_path(__FILE__) . 'includes/display_list_acc_page.php');
+
     if (aul_fs()->is__premium_only()) {
         if (aul_fs()->can_use_premium_code()) {
             require_once(plugin_dir_path(__FILE__) . 'includes/widget__premium_only.php');

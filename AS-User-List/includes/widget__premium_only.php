@@ -2,7 +2,7 @@
 function AS_U_L_dashboard()
 {
     global $wpdb;
-    $table_name = $wpdb->prefix . 'favorites';
+    $table_name = $wpdb->prefix . 'AS_User_List';
 
     // Retrieve the top 5 products with the most saves
     $query = "SELECT post_id, COUNT(*) AS num_saves FROM $table_name GROUP BY post_id ORDER BY num_saves DESC LIMIT 5";

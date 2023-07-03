@@ -15,7 +15,7 @@ add_action('admin_head', function () {
 function get_favorited_items()
 {
     global $wpdb;
-    $table_name = $wpdb->prefix . "favorites";
+    $table_name = $wpdb->prefix . "AS_User_List";
     $query = "SELECT post_id, COUNT(*) AS num_saves FROM $table_name GROUP BY post_id";
     $results = $wpdb->get_results($query);
     return $results;
@@ -198,7 +198,7 @@ function AS_User_List_settings_page()
                         if (aul_fs()->is__premium_only()) {
                             if (aul_fs()->can_use_premium_code()) {
                                 global $wpdb;
-                                $table_name = $wpdb->prefix . "favorites";
+                                $table_name = $wpdb->prefix . "AS_User_List";
 
                                 // Get the search query from the user
                                 $search_query = isset($_GET['search']) ? sanitize_text_field($_GET['search']) : '';
@@ -496,7 +496,7 @@ function AS_User_List_settings_page()
                         function delete_all_data()
                         {
                             global $wpdb;
-                            $table_name = $wpdb->prefix . 'favorites';
+                            $table_name = $wpdb->prefix . 'AS_User_List';
                             $wpdb->query("DROP TABLE IF EXISTS $table_name");
                             delete_option('AS_User_List_icons_style');
                             delete_option('AS_U_L_list_title');

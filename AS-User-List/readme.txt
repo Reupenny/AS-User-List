@@ -30,12 +30,21 @@ BASIC FEATURES:
 🔷 Rename or remove the \"add to list\" text
 🔷 Integration with WooCommerce\'s \"My Account\" dashboard
 🔷 Mobile device-friendly design
+🔷 See the origional price if an item is on sale
+🔷 
 
 Shortcodes:
 [as_display_list]
 Use this shortcode to display the list on your desired page.
 [as_add_to_list]
 Use this shortcode to add the \"add to list\" button to any page.
+[as_count_list]
+Displays the number of items is a users ilst
+[as_count_list opt="name"]
+Displays the list name and the number of items in a users list 
+e.g. Favourites (4)
+[as_count_list opt="link"]
+The same as above but when the user clicks on it it takes them to the list page.
 
 Premium Features:
 🔷 Stock Status: View the stock status of products in the list.
@@ -44,6 +53,22 @@ Premium Features:
 🔷 Widget: The top 5 pages or products in your customers\' lists displayed on the dashbord with easy quick actions.
 
 Upgrade to our premium version and unlock these fantastic features to take your user engagement to new heights.
+
+CACHE SUPPORT
+Our plugin is compatable with the following cache plugins to help prevent lists from being cached.
+🔷 W3 Total Cache
+🔷 WP Super Cache
+🔷 Cache Enabler
+🔷 Autoptimize
+🔷 Comet Cache
+🔷 Hummingbird
+🔷 Kinsta Cache
+🔷 LiteSpeed Cache
+🔷 SiteGround Optimizer
+🔷 Surge
+🔷 WP Engine System
+🔷 WP Fastest Cache
+🔷 WP Optimize
 
 == Installation ==
 There are several ways to install AS User List:
@@ -69,5 +94,12 @@ After the installation is complete, click the “Activate” link (Plugins > Ins
 3. view off adding product to list
 
 == Changelog ==
+1.1.0 – Jul 05, 2023
+- Fix error with certain themes
+- Add origional price if item is on sale
+- Changed database table name to reduce conflicts
+- Add list code shortdoce with options
+- Cache support
+
 1.0.0 – Jun 17, 2023
 - Initial Release
