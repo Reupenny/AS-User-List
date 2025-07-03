@@ -6,8 +6,6 @@
 
 A flexible favourite & Wishlist wordpress plugin that allows users to add any page, product or post to their list.
 
-Please note this is my second plugin for wordpress and I am new to PHP.
-
 
 ## Features
 BASIC FEATURES:
